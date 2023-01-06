@@ -188,10 +188,10 @@
                         let image_URL = rows[i]['image_URL']
                         let star_image = '⭐'.repeat(star)
                         let temp_html = `
-                                            <div class="col">
-                                                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                                             <div class="col" id="${title}" onclick="clicked(this)">
+                                                <div id="${title}" class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                                                      style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${image_URL}') ;">
-                                                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2" onclick="location.href='reviewPage.html'">
+                                                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
                                                         <h2 class="pt-5 mt-5 mb-4 display-6 lh-1">${title}</h2>
                                                         <ul class="d-flex list-unstyled mt-auto">
                                                             <li class="me-auto">
@@ -219,6 +219,13 @@
                 }
             });
         }
+        function clicked(temp) {
+            console.log(temp.id)
+            // let click = document.querySelector('.col')
+            window.location.href = `reviewPage.html?${temp.id}`
+            // console.log(click['id'])
+        }
+
     </script>
 </head>
 
@@ -227,7 +234,7 @@
         <div class="container">
             <header class="d-flex justify-content-center py-3">
                 <ul class="nav nav-pills gap-2">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">컴퓨터</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" aria-current="page">컴퓨터</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">태블릿 PC</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">스마트폰</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">스마트워치</a></li>
