@@ -26,7 +26,7 @@
 
 .board_title {
     font-size: x-large;
-    padding: 15px;
+    padding: 15px 0px 15px 0px;
     border-bottom: 1px solid black;
 }
 
@@ -48,7 +48,21 @@
     align-items: center;
 }
 
+.mytitle {
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.techadvisor.com/wp-content/uploads/2022/09/iPhone-14-Pro_review_1.jpg?resize=1024%2C576&quality=50&strip=all");
 
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .board_info > div {
     margin-right: 15px;
@@ -72,19 +86,15 @@
 }
 
 .input-group > textarea {
-    height: 300px;
-}
-
-.bt_wrap {
-    /*background-color: green;*/
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 350px;
 }
 
 .bt_wrap button {
     margin-right: 10px;
+}
+
+button {
+    float: right;
 }
 
 </style>
@@ -94,13 +104,19 @@
     }
 </script>
 <body>
+<div class="mytitle">
+    <h1 class="text-shadow-2">IT리뷰 다나와</h1>
+    <!--        <button onclick="open_box()" class="btn btn-light">리뷰 작성하기 🔥</button>-->
+    <div class="writeReview">
+    </div>
+</div>
 <div class="board_wrap">
     <div class="board_title">
         <strong>리뷰 등록하기</strong>
+        <button type="button" class="btn btn-secondary">등록</button>
     </div>
     <div class="board_select">
         <div class="input-group mb-3" id="board_select_1">
-            <label class="input-group-text" for="reviewTags">게시판</label>
             <select class="form-select" id="reviewTags">
                 <option selected>게시판을 선택해주세요.</option>
                 <option value="1">컴퓨터</option>
@@ -111,7 +127,6 @@
             </select>
         </div>
         <div class="input-group mb-3" id="board_select_2">
-            <label class="input-group-text" for="reviewPoints">별점</label>
             <select class="form-select" id="reviewPoints">
                 <option selected>별점을 선택해주세요.</option>
                 <option value="1">⭐</option>
@@ -123,33 +138,25 @@
         </div>
     </div>
     <div class="input-group mb-3">
-        <span class="input-group-text" id="image_URL">URL</span>
         <input type="text" class="form-control" placeholder="이미지 URL 입력" aria-label="Username"
                aria-describedby="image_URL">
     </div>
     <div class="board_info">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="title">제목</span>
             <input type="text" class="form-control" placeholder="제목 입력" aria-label="Username"
                    aria-describedby="title">
         </div>
         <div class="input-group mb-3" id="board_info_2">
-            <span class="input-group-text" id="writer">글쓴이</span>
             <input type="text" class="form-control" placeholder="글쓴이 입력" aria-label="Username"
                    aria-describedby="writer">
         </div>
         <div class="input-group mb-3" id="board_info_3">
-            <span class="input-group-text" id="password">비밀번호</span>
             <input type="text" class="form-control" placeholder="비밀번호 입력" aria-label="Username"
                    aria-describedby="password">
         </div>
     </div>
     <div class="input-group">
         <textarea class="form-control" aria-label="With textarea"></textarea>
-    </div>
-    <div class="bt_wrap">
-        <button type="button" class="btn btn-primary btn-lg">등록</button>
-        <button type="button" class="btn btn-secondary btn-lg" onclick="location.href='index.html'">취소</button>
     </div>
 </div>
 </body>
