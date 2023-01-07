@@ -16,7 +16,6 @@ app = Flask(__name__, template_folder="templates")
 def home():
     return render_template('index.html')
 
-
 @app.route('/reviewWritePage.html')
 def reviewwritepage():
     return render_template('reviewWritePage.html')
