@@ -51,7 +51,82 @@
                         continue
                     }
 
-                    let temp_html = `<div class="px-4 pt-5 my-5 text-center border-bottom">
+                    let temp_html
+
+                    if (board == '1') {
+                        temp_html = `
+                        <div class="container">
+                            <header class="d-flex justify-content-center py-3">
+                                <ul class="nav nav-pills gap-2">
+                                    <li class="nav-item"><a href="/" class="nav-link" aria-current="page">전체</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link active" aria-current="page" id="1">컴퓨터</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link" id="2">태블릿 PC</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link" id="3">스마트폰</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewwatch(this)" class="nav-link" id="4">스마트워치</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewEtc(this)" class="nav-link" id="5">기타</a></li>
+                                </ul>
+                            </header>
+                        </div>`
+                    } else if (board == '2') {
+                        temp_html = `
+                        <div class="container">
+                            <header class="d-flex justify-content-center py-3">
+                                <ul class="nav nav-pills gap-2">
+                                    <li class="nav-item"><a href="/" class="nav-link" aria-current="page">전체</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link" aria-current="page" id="1">컴퓨터</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link active" id="2">태블릿 PC</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link" id="3">스마트폰</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewwatch(this)" class="nav-link" id="4">스마트워치</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewEtc(this)" class="nav-link" id="5">기타</a></li>
+                                </ul>
+                            </header>
+                        </div>`
+                    } else if (board == '3') {
+                        temp_html = `
+                        <div class="container">
+                            <header class="d-flex justify-content-center py-3">
+                                <ul class="nav nav-pills gap-2">
+                                    <li class="nav-item"><a href="/" class="nav-link" aria-current="page">전체</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link" aria-current="page" id="1">컴퓨터</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link" id="2">태블릿 PC</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link active" id="3">스마트폰</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewwatch(this)" class="nav-link" id="4">스마트워치</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewEtc(this)" class="nav-link" id="5">기타</a></li>
+                                </ul>
+                            </header>
+                        </div>`
+                    } else if (board == '4') {
+                        temp_html = `
+                        <div class="container">
+                            <header class="d-flex justify-content-center py-3">
+                                <ul class="nav nav-pills gap-2">
+                                    <li class="nav-item"><a href="/" class="nav-link" aria-current="page">전체</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link" aria-current="page" id="1">컴퓨터</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link" id="2">태블릿 PC</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link" id="3">스마트폰</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewwatch(this)" class="nav-link active" id="4">스마트워치</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewEtc(this)" class="nav-link" id="5">기타</a></li>
+                                </ul>
+                            </header>
+                        </div>`
+                    } else if (board == '5') {
+                        temp_html = `
+                        <div class="container">
+                            <header class="d-flex justify-content-center py-3">
+                                <ul class="nav nav-pills gap-2">
+                                    <li class="nav-item"><a href="/" class="nav-link" aria-current="page">전체</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link" aria-current="page" id="1">컴퓨터</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link" id="2">태블릿 PC</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link" id="3">스마트폰</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewwatch(this)" class="nav-link" id="4">스마트워치</a></li>
+                                    <li class="nav-item"><a href="#" onclick="reviewEtc(this)" class="nav-link active" id="5">기타</a></li>
+                                </ul>
+                            </header>
+                        </div>`
+                    }
+
+                    temp_html += `
+                                    <div class="px-4 pt-5 my-5 text-center border-bottom">
                                         <h1 class="display-4 fw-bold">${title}</h1>
                                         <div class="col-lg-6 mx-auto">
                                             <div class="lead mt-4 reviewInfo gap-3">

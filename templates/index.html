@@ -43,7 +43,7 @@
         .writeReview {
             position: absolute;
             top: 470px;
-            right: 100px;
+            right: 640px;
         }
 
         .mytitle {
@@ -117,6 +117,18 @@
         .btns-wrap > .btn {
             margin-right: 10px;
         }
+
+        .board_wrap {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .board_title {
+            font-size: x-large;
+            padding: 15px 0px 15px 0px;
+            border-bottom: 1px solid black;
+        }
+
 
     </style>
     <script>
@@ -287,6 +299,7 @@
         <div class="container">
             <header class="d-flex justify-content-center py-3">
                 <ul class="nav nav-pills gap-2">
+                    <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">전체</a></li>
                     <li class="nav-item"><a href="#" onclick="reviewComputer(this)" class="nav-link" aria-current="page" id="1">컴퓨터</a></li>
                     <li class="nav-item"><a href="#" onclick="reviewTablet(this)" class="nav-link" id="2">태블릿 PC</a></li>
                     <li class="nav-item"><a href="#" onclick="reviewPhone(this)" class="nav-link" id="3">스마트폰</a></li>
@@ -330,7 +343,7 @@
 <!--    </div>-->
 
     <div class="b-example-divider"></div>
-    <div class="container px-4 py-5" id="custom-cards">
+    <div class="container px-4 py-5 head" id="custom-cards">
         <h2 class="pb-2 border-bottom">리뷰 모음들</h2>
         <div class="writeReview">
             <button class="btn btn-secondary" onclick="location.href='reviewWritePage.html'">글 작성</button>
