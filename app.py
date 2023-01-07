@@ -70,6 +70,13 @@ def web_review_post():
     db.review.insert_one(doc)
     return jsonify({'msg':'리뷰가 등록되었습니다!'})
 
+@app.route("/delete", methods=["POST"])
+def web_delete_review():
+    title_receive = request.form['title_give']
+    print(title_receive + "asd")
+    db.review.delete_one({'title': title_receive})
+    return jsonify({'msg':'리뷰가 삭제되었습니다!'})
+
 
 @app.route("/review", methods=["GET"])
 def web_review_get():

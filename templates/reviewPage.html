@@ -148,7 +148,16 @@
                                                 ${review}
                                             </p>
                                         </div>
-                                    </div>`
+                                        <div>
+                                        <p>
+                                            <input id="password" type="text" placeholder="비밀번호 입력" aria-label="Username"
+                                               aria-describedby="password">
+                                            <button class="btn btn-secondary" onclick="edit_review(this)">수정하기</button>
+                                            <button class="btn btn-secondary" onclick="delete_review('${title}')">삭제하기</button>
+                                        </p>
+                                      </div>
+                                    </div>
+                                    `
                     $('#body').append(temp_html)
                 }
             }
@@ -208,6 +217,20 @@
             //             $('#review-box').append(temp_html)
 
         }
+
+    function delete_review(title) {
+        $.ajax({
+            type: 'POST',
+            url: '/delete',
+            data: {
+                title_give: title,
+            },
+            success: function (response) {
+                alert(response['msg'])
+                location.href = '/'
+            }
+        })
+    }
 </script>
 <body id="body">
 
