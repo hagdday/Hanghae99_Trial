@@ -127,7 +127,7 @@
 
                     temp_html += `
                                     <div class="px-4 pt-5 my-5 text-center border-bottom">
-                                        <h1 class="display-4 fw-bold">${title}</h1>
+                                        <h1 id="title" class="display-4 fw-bold">${title}</h1>
                                         <div class="col-lg-6 mx-auto">
                                             <div class="lead mt-4 reviewInfo gap-3">
                                                 <h6 class="reviewTag">${board}</h6>
@@ -152,7 +152,7 @@
                                         <p>
                                             <input id="password" type="text" placeholder="비밀번호 입력" aria-label="Username"
                                                aria-describedby="password">
-                                            <button class="btn btn-secondary" onclick="edit_review(this)">수정하기</button>
+                                            <button class="btn btn-secondary" onclick="update_review('${title}')" id="update">수정하기</button>
                                             <button class="btn btn-secondary" onclick="delete_review('${title}')">삭제하기</button>
                                         </p>
                                       </div>
@@ -163,62 +163,69 @@
             }
         });
     }
+
     function reviewTablet(temp) {
-            // $('.col').empty()
-            console.log(temp)
-            window.location.href = `TabletReview.html?${temp.id}`
-        }
-        function reviewPhone(temp) {
-            // $('.col').empty()
-            console.log(temp)
-            window.location.href = `smartPhoneReview.html?${temp.id}`
-        }
-        function reviewwatch(temp) {
-            // $('.col').empty()
-            console.log(temp)
-            window.location.href = `smartWatchReview.html?${temp.id}`
-        }
-        function reviewEtc(temp) {
-            // $('.col').empty()
-            console.log(temp)
-            window.location.href = `etcReview.html?${temp.id}`
-        }
-        function reviewComputer(temp) {
-            // $('.col').empty()
-            console.log(temp)
-            window.location.href = `computerReview.html?${temp.id}`
-            // let temp_html = `
-            //                                  <div class="col" id="${title}" onclick="clicked(this)">
-            //                                     <div id="${title}" class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-            //                                          style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${image_URL}') ;">
-            //                                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
-            //                                             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1">${title}</h2>
-            //                                             <ul class="d-flex list-unstyled mt-auto">
-            //                                                 <li class="me-auto">
-            //                                                     <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32"
-            //                                                          class="rounded-circle border border-white">
-            //                                                 </li>
-            //                                                 <li class="d-flex align-items-center me-3">
-            //                                                     <svg class="bi me-2" width="1em" height="1em">
-            //                                                         <use xlink:href="#geo-fill"/>
-            //                                                     </svg>
-            //                                                     <small>${writer}</small>
-            //                                                 </li>
-            //                                                 <li class="d-flex align-items-center">
-            //                                                     <svg class="bi me-2" width="1em" height="1em">
-            //                                                         <use xlink:href="#calendar3"/>
-            //                                                     </svg>
-            //                                                     <small>${star_image}</small>
-            //                                                 </li>
-            //                                             </ul>
-            //                                         </div>
-            //                                     </div>
-            //                                 `
-            //             $('#review-box').append(temp_html)
+        // $('.col').empty()
+        console.log(temp)
+        window.location.href = `TabletReview.html?${temp.id}`
+    }
 
-        }
+    function reviewPhone(temp) {
+        // $('.col').empty()
+        console.log(temp)
+        window.location.href = `smartPhoneReview.html?${temp.id}`
+    }
 
-    function delete_review(title) {
+    function reviewwatch(temp) {
+        // $('.col').empty()
+        console.log(temp)
+        window.location.href = `smartWatchReview.html?${temp.id}`
+    }
+
+    function reviewEtc(temp) {
+        // $('.col').empty()
+        console.log(temp)
+        window.location.href = `etcReview.html?${temp.id}`
+    }
+
+    function reviewComputer(temp) {
+        // $('.col').empty()
+        console.log(temp)
+        window.location.href = `computerReview.html?${temp.id}`
+        // let temp_html = `
+        //                                  <div class="col" id="${title}" onclick="clicked(this)">
+        //                                     <div id="${title}" class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+        //                                          style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${image_URL}') ;">
+        //                                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
+        //                                             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1">${title}</h2>
+        //                                             <ul class="d-flex list-unstyled mt-auto">
+        //                                                 <li class="me-auto">
+        //                                                     <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32"
+        //                                                          class="rounded-circle border border-white">
+        //                                                 </li>
+        //                                                 <li class="d-flex align-items-center me-3">
+        //                                                     <svg class="bi me-2" width="1em" height="1em">
+        //                                                         <use xlink:href="#geo-fill"/>
+        //                                                     </svg>
+        //                                                     <small>${writer}</small>
+        //                                                 </li>
+        //                                                 <li class="d-flex align-items-center">
+        //                                                     <svg class="bi me-2" width="1em" height="1em">
+        //                                                         <use xlink:href="#calendar3"/>
+        //                                                     </svg>
+        //                                                     <small>${star_image}</small>
+        //                                                 </li>
+        //                                             </ul>
+        //                                         </div>
+        //                                     </div>
+        //                                 `
+        //             $('#review-box').append(temp_html)
+
+    }
+
+    function delete_review(title, password) {
+    let inputted_password = $('#password').val()
+    if (password == inputted_password) {
         $.ajax({
             type: 'POST',
             url: '/delete',
@@ -230,6 +237,28 @@
                 location.href = '/'
             }
         })
+    } else if(password != inputted_password){
+        alert("비밀번호가 일치하지 않습니다.")
+    }
+}
+
+    function update_review(title) {
+        // let title = $('#title').val()
+        let password = $('#password').val()
+        console.log(title, password)
+        // console.log(password)
+        $.ajax({
+            type: 'POST',
+            url: '/update',
+            data: {
+                title_give:title,
+                password_give:password
+            },
+            success: function(response) {
+                // location.href='/update'
+            }
+        })
+        // window.location.href = `/update`
     }
 </script>
 <body id="body">

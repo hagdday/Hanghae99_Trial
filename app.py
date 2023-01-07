@@ -48,7 +48,6 @@ def smartWatchReview():
 def TabletReview():
     return render_template('TabletReview.html')
 
-
 @app.route("/review", methods=["POST"])
 def web_review_post():
     review_receive = request.form['review_give']
@@ -77,6 +76,25 @@ def web_delete_review():
     db.review.delete_one({'title': title_receive})
     return jsonify({'msg':'리뷰가 삭제되었습니다!'})
 
+@app.route("/update", methods=["POST"])
+def web_update_review():
+    title_receive = request.form['title_give']
+    password_receive = request.form['password_give']
+    print(title_receive, password_receive)
+    # review_list = list(db.review.find({}, {'_id': False}))
+    return
+    # doc = {
+    #     'review': review_receive,
+    #     'star': star_receive,
+    #     'title': title_receive,
+    #     'board': board_receive,
+    #     'writer': writer_receive,
+    #     'password': password_receive,
+    #     'image_URL': image_receive
+    # }
+    # db.review.update_one(doc)
+    # return jsonify({'msg':'리뷰가 삭제되었습니다!'})
+
 
 @app.route("/review", methods=["GET"])
 def web_review_get():
@@ -85,4 +103,4 @@ def web_review_get():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=4200, debug=True)
+    app.run('0.0.0.0', port=4300, debug=True)
