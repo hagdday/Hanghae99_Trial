@@ -26,6 +26,29 @@ def reviewwritepage():
 def reviewpage():
     return render_template('reviewPage.html')
 
+@app.route('/etcReview.html')
+def etcReview():
+    return render_template('etcReview.html')
+
+
+@app.route('/computerReview.html')
+def computerReview():
+    return render_template('computerReview.html')
+
+
+@app.route('/smartPhoneReview.html')
+def smartPhoneReview():
+    return render_template('smartPhoneReview.html')
+
+
+@app.route('/smartWatchReview.html')
+def smartWatchReview():
+    return render_template('smartWatchReview.html')
+
+@app.route('/TabletReview.html')
+def TabletReview():
+    return render_template('TabletReview.html')
+
 
 @app.route("/review", methods=["POST"])
 def web_review_post():
@@ -56,4 +79,4 @@ def web_review_get():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=4009, debug=True)
+    app.run('0.0.0.0', port=4200, debug=True)

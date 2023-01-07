@@ -175,6 +175,10 @@
         });
 
         function show_review() {
+            // if (location.href.split('?')[1] == '1') {
+            //
+            // }
+
             $.ajax({
                 type: 'GET',
                 url: '/review',
@@ -182,6 +186,10 @@
                 success: function (response) {
                     let rows = response['reviews']
                     for (let i = 0; i < rows.length; i++) {
+                        let board = rows[i]['board']
+                        if (location.href.split('?')[1] !== board) {
+                            continue
+                        }
                         let star = rows[i]['star']
                         let title = rows[i]['title']
                         let writer = rows[i]['writer']
@@ -215,6 +223,8 @@
                                                 </div>
                                             `
                         $('#review-box').append(temp_html)
+
+
                     }
                 }
             });
@@ -224,6 +234,38 @@
             // let click = document.querySelector('.col')
             window.location.href = `reviewPage.html?${temp.id}`
             // console.log(click['id'])
+        }
+        function freshReview() {
+            $('.col').empty()
+            let temp_html = `
+                                             <div class="col" id="${title}" onclick="clicked(this)">
+                                                <div id="${title}" class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                                                     style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${image_URL}') ;">
+                                                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
+                                                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1">${title}</h2>
+                                                        <ul class="d-flex list-unstyled mt-auto">
+                                                            <li class="me-auto">
+                                                                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32"
+                                                                     class="rounded-circle border border-white">
+                                                            </li>
+                                                            <li class="d-flex align-items-center me-3">
+                                                                <svg class="bi me-2" width="1em" height="1em">
+                                                                    <use xlink:href="#geo-fill"/>
+                                                                </svg>
+                                                                <small>${writer}</small>
+                                                            </li>
+                                                            <li class="d-flex align-items-center">
+                                                                <svg class="bi me-2" width="1em" height="1em">
+                                                                    <use xlink:href="#calendar3"/>
+                                                                </svg>
+                                                                <small>${star_image}</small>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            `
+                        $('#review-box').append(temp_html)
+
         }
         function reviewTablet(temp) {
             // $('.col').empty()
